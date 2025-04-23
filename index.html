@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Impact Blueprint™ | Realizing ROI at AI Speed</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #1a2b3c;
+            --secondary-color: #2980b9;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --border-radius: 5px;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+            
+            /* Module colors */
+            --profit-engine-color: #27ae60;
+            --reckoner-color: #8e44ad;
+            --redline-color: #e74c3c;
+            --clarity-index-color: #3498db;
+            --returnfire-color: #f39c12;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: var(--box-shadow);
+        }
+
+        header h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--light-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin-right: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--light-color);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--light-color);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            height: 5px;
+            background: #f1f1f1;
+        }
+
+        .progress-bar {
+            height: 5px;
+            background: var(--secondary-color);
+            width: 0%;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Program Overview Styles */
+        .program-objectives, .program-structure, .learning-approach {
+            margin-bottom: 3rem;
+        }
+
+        .phases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .phase {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .phase:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .phase h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Module Grid Styles */
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .module-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .module-card.profit-engine {
+            border-top-color: var(--profit-engine-color);
+        }
+
+        .module-card.reckoner {
+            border-top-color: var(--reckoner-color);
+        }
+
+        .module-card.redline {
+            border-top-color: var(--redline-color);
+        }
+
+        .module-card.clarity-index {
+            border-top-color: var(--clarity-index-color);
+        }
+
+        .module-card.returnfire {
+            border-top-color: var(--returnfire-color);
+        }
+
+        .module-header {
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #eee;
+        }
+
+        .module-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .profit-engine .module-header h3 {
+            color: var(--profit-engine-color);
+        }
+
+        .reckoner .module-header h3 {
+            color: var(--reckoner-color);
+        }
+
+        .redline .module-header h3 {
+            color: var(--redline-color);
+        }
+
+        .clarity-index .module-header h3 {
+            color: var(--clarity-index-color);
+        }
+
+        .returnfire .module-header h3 {
+            color: var(--returnfire-color);
+        }
+
+        .module-content {
+            padding: 1.5rem;
+        }
+
+        .module-content h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .module-vibe {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            font-style: italic;
+            color: #666;
+        }
+
+        .module-integration {
+            background-color: var(--light-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-top: 2rem;
+        }
+
+        .module-integration h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* SMART Goals Styles */
+        .smart-goal {
+            background-color: white;
+            margin-bottom: 2rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .smart-goal h3 {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 1.5rem;
+            margin: 0;
+        }
+
+        .goal-details {
+            padding: 1.5rem;
+        }
+
+        .goal-details h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .goal-details h5 {
+            margin-top: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        /* Prerequisites Styles */
+        .requirements-group, .resources-group {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .requirements-group h4, .resources-group h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .technical-requirements, .knowledge-prerequisites, .learning-resources {
+            margin-bottom: 2.5rem;
+        }
+
+        /* Curriculum Styles */
+        .curriculum-phase {
+            margin-bottom: 3rem;
+        }
+
+        .curriculum-phase h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-color);
+        }
+
+        .module {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .module h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .hands-on-projects {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-top: 2rem;
+        }
+
+        .hands-on-projects h3 {
+            color: var(--primary-color);
+        }
+
+        /* Assessment Styles */
+        .assessment-type {
+            margin-bottom: 2.5rem;
+        }
+
+        .assessment-type h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .assessment-group {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .assessment-group h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .trademark-notice {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .phases {
+                grid-template-columns: 1fr;
+            }
+            
+            .module-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        /* Animation Styles */
+        @media (prefers-reduced-motion: no-preference) {
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .section {
+                animation: fadeIn 0.8s ease-out;
+            }
+
+            .section:nth-child(2) { animation-delay: 0.1s; }
+            .section:nth-child(3) { animation-delay: 0.2s; }
+            .section:nth-child(4) { animation-delay: 0.3s; }
+            .section:nth-child(5) { animation-delay: 0.4s; }
+            .section:nth-child(6) { animation-delay: 0.5s; }
+            
+            .module-card {
+                animation: fadeIn 0.6s ease-out;
+            }
+            
+            .module-card:nth-child(1) { animation-delay: 0.1s; }
+            .module-card:nth-child(2) { animation-delay: 0.2s; }
+            .module-card:nth-child(3) { animation-delay: 0.3s; }
+            .module-card:nth-child(4) { animation-delay: 0.4s; }
+            .module-card:nth-child(5) { animation-delay: 0.5s; }
+        }
+
+        /* Integration visualization */
+        .integration-visualization {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .module-node {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.9rem;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .module-node:hover {
+            transform: scale(1.1);
+        }
+        
+        .module-node.profit-engine {
+            background-color: var(--profit-engine-color);
+        }
+        
+        .module-node.reckoner {
+            background-color: var(--reckoner-color);
+        }
+        
+        .module-node.redline {
+            background-color: var(--redline-color);
+        }
+        
+        .module-node.clarity-index {
+            background-color: var(--clarity-index-color);
+        }
+        
+        .module-node.returnfire {
+            background-color: var(--returnfire-color);
+        }
+        
+        .module-node.center {
+            background-color: var(--primary-color);
+            width: 150px;
+            height: 150px;
+            z-index: 2;
+            margin: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .module-node {
+                width: 100px;
+                height: 100px;
+                font-size: 0.8rem;
+            }
+            
+            .module-node.center {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .back-to-top.show {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        /* Mobile navigation */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            z-index: 1000;
+        }
+        
+        .nav-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: var(--primary-color);
+                padding: 80px 20px 20px;
+                transition: right 0.3s ease;
+                z-index: 999;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
+        /* Active navigation links */
+        .nav-link.active {
+            color: var(--light-color);
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>AI Impact Blueprint™</h1>
+            <p class="tagline">The end-to-end methodology for realizing ROI at AI speed</p>
+            <nav>
+                <ul>
+                    <li><a href="#overview" class="nav-link active"><i class="fas fa-home"></i> Overview</a></li>
+                    <li><a href="#modules" class="nav-link"><i class="fas fa-cube"></i> Modules</a></li>
+                    <li><a href="#program" class="nav-link"><i class="fas fa-graduation-cap"></i> Program</a></li>
+                    <li><a href="#prerequisites" class="nav-link"><i class="fas fa-clipboard-check"></i> Prerequisites</a></li>
+                    <li><a href="#curriculum" class="nav-link"><i class="fas fa-book"></i> Curriculum</a></li>
+                    <li><a href="#assessment" class="nav-link"><i class="fas fa-chart-line"></i> Assessment</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <section id="overview" class="section">
+        <div class="container">
+            <h2>Program Overview</h2>
+            <p>The AI Impact Blueprint is a comprehensive training program designed to empower business professionals to create their own ROI and risk tracking systems for AI initiatives. This strategic, boardroom-ready methodology provides the tools, templates, and knowledge needed to quantify, communicate, and accelerate AI value while managing associated risks.</p>
+            
+            <div class="program-objectives">
+                <h3><i class="fas fa-flag"></i> Program Objectives</h3>
+                <p>By completing this program, you will:</p>
+                <ul>
+                    <li>Master the end-to-end methodology for realizing ROI at AI speed</li>
+                    <li>Develop proficiency with five powerful, modular templates for AI value assessment</li>
+                    <li>Create a cohesive, customized system for tracking and optimizing AI investments</li>
+                    <li>Build boardroom-ready tools to communicate AI value and risk to stakeholders</li>
+                </ul>
+            </div>
+            
+            <div class="program-structure">
+                <h3><i class="fas fa-sitemap"></i> Program Structure</h3>
+                <p>The program spans 12 weeks with a time commitment of 8 hours per week, for a total of 96 learning hours. It is divided into four phases:</p>
+                <div class="phases">
+                    <div class="phase">
+                        <h4><i class="fas fa-layer-group"></i> Phase 1: Foundation Building</h4>
+                        <p>Weeks 1-3: Establishing core knowledge of AI ROI and risk assessment</p>
+                    </div>
+                    <div class="phase">
+                        <h4><i class="fas fa-tools"></i> Phase 2: Module Mastery</h4>
+                        <p>Weeks 4-6: Developing proficiency with the five AI Impact Blueprint modules</p>
+                    </div>
+                    <div class="phase">
+                        <h4><i class="fas fa-code"></i> Phase 3: System Development</h4>
+                        <p>Weeks 7-9: Creating a functioning prototype of your customized tracking system</p>
+                    </div>
+                    <div class="phase">
+                        <h4><i class="fas fa-rocket"></i> Phase 4: Implementation & Scaling</h4>
+                        <p>Weeks 10-12: Refining your system and preparing for business implementation</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="learning-approach">
+                <h3><i class="fas fa-graduation-cap"></i> Learning Approach</h3>
+                <p>The program incorporates multiple learning styles:</p>
+                <ul>
+                    <li><i class="fas fa-video"></i> <strong>Video tutorials</strong> for key concepts and module demonstrations</li>
+                    <li><i class="fas fa-laptop-code"></i> <strong>Hands-on projects</strong> using the five module templates</li>
+                    <li><i class="fas fa-headphones"></i> <strong>Audio resources</strong> for supplementary learning during other activities</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="modules" class="section">
+        <div class="container">
+            <h2>AI Impact Blueprint Modules</h2>
+            <p>The AI Impact Blueprint consists of five powerful, modular templates that work together to create a cohesive system for tracking and optimizing AI investments.</p>
+            
+            <div class="module-grid">
+                <div class="module-card profit-engine">
+                    <div class="module-header">
+                        <h3>The Profit Engine™</h3>
+                    </div>
+                    <div class="module-content">
+                        <h4>ROI Calculator & Diagnostic Tool</h4>
+                        <p><strong>Purpose:</strong> Quantifies risk-adjusted ROI; turns risk/reward into numbers</p>
+                        <p><strong>Key Features:</strong></p>
+                        <ul>
+                            <li>Comprehensive ROI calculation methodology</li>
+                            <li>Risk adjustment factors for realistic projections</li>
+                            <li>Diagnostic capabilities to identify value opportunities</li>
+                        </ul>
+                        <p class="module-vibe">Jobs-level clarity. VCs love it. It's our Trojan horse.</p>
+                    </div>
+                </div>
+                
+                <div class="module-card reckoner">
+                    <div class="module-header">
+                        <h3>Reckoner™</h3>
+                    </div>
+                    <div class="module-content">
+                        <h4>Executive Decision-Support Module</h4>
+                        <p><strong>Purpose:</strong> Helps leaders prioritize, challenge assumptions, model consequences of inaction</p>
+                        <p><strong>Key Features:</strong></p>
+                        <ul>
+                            <li>Decision frameworks for AI investment prioritization</li>
+                            <li>Assumption testing methodologies</li>
+                            <li>Opportunity cost modeling for inaction scenarios</li>
+                        </ul>
+                        <p class="module-vibe">Feels like a Tarantino title—dark, dramatic, but authoritative. It can be your most strategic storytelling tool.</p>
+                    </div>
+                </div>
+                
+                <div class="module-card redline">
+                    <div class="module-header">
+                        <h3>Redline™</h3>
+                    </div>
+                    <div class="module-content">
+                        <h4>Deployment Readiness Evaluator</h4>
+                        <p><strong>Purpose:</strong> Identifies when an AI deployment is moving too fast without proper governance</p>
+                        <p><strong>Key Features:</strong></p>
+                        <ul>
+                            <li>Operational risk scorecard</li>
+                            <li>Governance gap analysis</li>
+                            <li>Deployment pace optimization</li>
+                        </ul>
+                        <p class="module-vibe">Urgent, powerful. Great for fear/respect moments in boardrooms.</p>
+                    </div>
+                </div>
+                
+                <div class="module-card clarity-index">
+                    <div class="module-header">
+                        <h3>Clarity Index™</h3>
+                    </div>
+                    <div class="module-content">
+                        <h4>Transparency & Explainability Assessment Tool</h4>
+                        <p><strong>Purpose:</strong> Measures how well an AI system's decisions can be understood and trusted</p>
+                        <p><strong>Key Features:</strong></p>
+                        <ul>
+                            <li>Explainability metrics and benchmarks</li>
+                            <li>Trust factor analysis</li>
+                            <li>Transparency improvement roadmap</li>
+                        </ul>
+                        <p class="module-vibe">Elegant, Jobsian, data-forward. Could eventually become a benchmark product.</p>
+                    </div>
+                </div>
+                
+                <div class="module-card returnfire">
+                    <div class="module-header">
+                        <h3>ReturnFire™</h3>
+                    </div>
+                    <div class="module-content">
+                        <h4>Post-Deployment ROI Acceleration Playbook</h4>
+                        <p><strong>Purpose:</strong> Optimizes underperforming AI deployments to recapture value</p>
+                        <p><strong>Key Features:</strong></p>
+                        <ul>
+                            <li>Performance gap analysis</li>
+                            <li>Value recapture strategies</li>
+                            <li>Acceleration tactics for immediate ROI</li>
+                        </ul>
+                        <p class="module-vibe">Action-oriented, badass, designed for execs who want ROI now.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="module-integration">
+                <h3><i class="fas fa-puzzle-piece"></i> Module Integration</h3>
+                <p>While each module is powerful on its own, the true value of the AI Impact Blueprint comes from their integration into a cohesive system:</p>
+                <ul>
+                    <li><strong>The Profit Engine</strong> provides the quantitative foundation</li>
+                    <li><strong>Reckoner</strong> guides strategic decision-making</li>
+                    <li><strong>Redline</strong> ensures safe and responsible deployment</li>
+                    <li><strong>Clarity Index</strong> builds trust and understanding</li>
+                    <li><strong>ReturnFire</strong> optimizes performance post-deployment</li>
+                </ul>
+                <p>Together, these modules create a complete lifecycle approach to AI value realization.</p>
+                <div class="integration-visualization">
+                    <div class="module-node center">AI Impact Blueprint</div>
+                    <div class="module-node profit-engine">The Profit Engine</div>
+                    <div class="module-node reckoner">Reckoner</div>
+                    <div class="module-node redline">Redline</div>
+                    <div class="module-node clarity-index">Clarity Index</div>
+                    <div class="module-node returnfire">ReturnFire</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="program" class="section">
+        <div class="container">
+            <h2>SMART Goals Framework</h2>
+            <p>The program is structured around four primary SMART goals, each corresponding to one phase of the program:</p>
+            
+            <div class="smart-goal">
+                <h3>Phase 1: Foundation Building (Weeks 1-3) </h3>
+                <div class="goal-details">
+                    <h4>SMART Goal 1: Master AI ROI and Risk Assessment Fundamentals</h4>
+                    <ul>
+                        <li><strong>Specific:</strong> Gain comprehensive knowledge of AI ROI calculation methodologies and risk assessment frameworks</li>
+                        <li><strong>Measurable:</strong> Complete foundational learning modules and pass knowledge assessment with 80% accuracy</li>
+                        <li><strong>Achievable:</strong> Leverages existing business knowledge while introducing new AI-specific concepts</li>
+                        <li><strong>Relevant:</strong> Provides the knowledge foundation for all five AI Impact Blueprint modules</li>
+                        <li><strong>Time-bound:</strong> Complete within the first 3 weeks (24 hours of learning time)</li>
+                    </ul>
+                    
+                    <h5>Weekly Milestones:</h5>
+                    <ul>
+                        <li>Week 1: Master AI ROI metrics and calculation methods</li>
+                        <li>Week 2: Understand risk categorization and assessment methodologies</li>
+                        <li>Week 3: Integrate ROI and risk concepts into a unified framework</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="smart-goal">
+                <h3>Phase 2: Module Mastery (Weeks 4-6)</h3>
+                <div class="goal-details">
+                    <h4>SMART Goal 2: Develop Proficiency with AI Impact Blueprint Modules</h4>
+                    <ul>
+                        <li><strong>Specific:</strong> Master the functionality and application of all five AI Impact Blueprint modules</li>
+                        <li><strong>Measurable:</strong> Successfully complete module-specific exercises and build functioning prototypes</li>
+                        <li><strong>Achievable:</strong> Focuses on practical application with clear templates and guidance</li>
+                        <li><strong>Relevant:</strong> Provides the tools needed to create a complete AI value tracking system</li>
+                        <li><strong>Time-bound:</strong> Complete within weeks 4-6 (24 hours of learning time)</li>
+                    </ul>
+                    
+                    <h5>Weekly Milestones:</h5>
+                    <ul>
+                        <li>Week 4: Master The Profit Engine and Reckoner modules</li>
+                        <li>Week 5: Master Redline and Clarity Index modules</li>
+                        <li>Week 6: Master ReturnFire module and module integration techniques</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="smart-goal">
+                <h3>Phase 3: System Development (Weeks 7-9)</h3>
+                <div class="goal-details">
+                    <h4>SMART Goal 3: Create a Functioning AI Value Tracking System</h4>
+                    <ul>
+                        <li><strong>Specific:</strong> Develop a working prototype of your customized AI value tracking system</li>
+                        <li><strong>Measurable:</strong> Complete system that integrates all five modules with your business context</li>
+                        <li><strong>Achievable:</strong> Builds incrementally on modules mastered in earlier phases</li>
+                        <li><strong>Relevant:</strong> Creates the primary deliverable for business implementation</li>
+                        <li><strong>Time-bound:</strong> Complete within weeks 7-9 (24 hours of development time)</li>
+                    </ul>
+                    
+                    <h5>Weekly Milestones:</h5>
+                    <ul>
+                        <li>Week 7: Design system architecture and implement core components</li>
+                        <li>Week 8: Integrate all five modules into a cohesive system</li>
+                        <li>Week 9: Test, refine, and document your customized system</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="smart-goal">
+                <h3>Phase 4: Implementation & Scaling (Weeks 10-12)</h3>
+                <div class="goal-details">
+                    <h4>SMART Goal 4: Prepare for Business Implementation and Scaling</h4>
+                    <ul>
+                        <li><strong>Specific:</strong> Refine your system, develop implementation strategy, and create scaling plan</li>
+                        <li><strong>Measurable:</strong> Complete final version with documentation, user guide, and implementation roadmap</li>
+                        <li><strong>Achievable:</strong> Focuses on optimization and strategic planning</li>
+                        <li><strong>Relevant:</strong> Ensures your system delivers maximum business value</li>
+                        <li><strong>Time-bound:</strong> Complete within weeks 10-12 (24 hours of refinement time)</li>
+                    </ul>
+                    
+                    <h5>Weekly Milestones:</h5>
+                    <ul>
+                        <li>Week 10: Implement advanced customization and enhance visualization capabilities</li>
+                        <li>Week 11: Develop industry-specific adaptations and comprehensive documentation</li>
+                        <li>Week 12: Finalize system and develop implementation and scaling strategy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="prerequisites" class="section">
+        <div class="container">
+            <h2>Prerequisites and Resources</h2>
+            
+            <div class="technical-requirements">
+                <h3>Technical Requirements</h3>
+                
+                <div class="requirements-group">
+                    <h4>Hardware Requirements</h4>
+                    <ul>
+                        <li><strong>Computer:</strong> Any modern laptop or desktop computer (Windows, Mac, or Linux)</li>
+                        <li><strong>Processor:</strong> Minimum dual-core processor, recommended quad-core or better</li>
+                        <li><strong>RAM:</strong> Minimum 8GB, recommended 16GB</li>
+                        <li><strong>Storage:</strong> At least 10GB of free space for software and project files</li>
+                        <li><strong>Internet Connection:</strong> Reliable broadband connection for accessing online resources and tools</li>
+                    </ul>
+                </div>
+                
+                <div class="requirements-group">
+                    <h4>Software Requirements</h4>
+                    <ul>
+                        <li><strong>Web Browser:</strong> Chrome, Firefox, or Edge (latest version)</li>
+                        <li><strong>Development Environment:</strong> Visual Studio Code or similar code editor</li>
+                        <li><strong>Spreadsheet Software:</strong> Microsoft Excel, Google Sheets, or equivalent for initial prototyping</li>
+                        <li><strong>Version Control:</strong> GitHub account and Git (optional but recommended)</li>
+                        <li><strong>Cloud Storage:</strong> Google Drive, Dropbox, or similar for backup and resource access</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="knowledge-prerequisites">
+                <h3>Knowledge Prerequisites</h3>
+                
+                <div class="requirements-group">
+                    <h4>Required Background</h4>
+                    <ul>
+                        <li><strong>Business Understanding:</strong> Familiarity with business value assessment and ROI concepts</li>
+                        <li><strong>AI Fundamentals:</strong> Basic understanding of AI/ML concepts and terminology</li>
+                        <li><strong>Data Analysis:</strong> Basic comfort with data interpretation and analysis</li>
+                        <li><strong>Critical Thinking:</strong> Ability to evaluate and prioritize business requirements</li>
+                    </ul>
+                </div>
+                
+                <div class="requirements-group">
+                    <h4>Helpful but Not Required</h4>
+                    <ul>
+                        <li><strong>Previous Experience with Business Tools:</strong> Any experience creating business tools or calculators</li>
+                        <li><strong>Basic Spreadsheet Formulas:</strong> Understanding of how to create formulas in Excel or similar tools</li>
+                        <li><strong>UI/UX Awareness:</strong> Basic understanding of user experience principles</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="learning-resources">
+                <h3>Learning Resources</h3>
+                
+                <div class="resources-group">
+                    <h4>Core Learning Materials</h4>
+                    <ul>
+                        <li><strong>Module Templates:</strong> Open-source building blocks for each of the five AI Impact Blueprint modules</li>
+                        <li><strong>Online Courses:</strong> Curated selections from Coursera, LinkedIn Learning, and edX</li>
+                        <li><strong>Books:</strong> Selected titles on AI business value and implementation</li>
+                        <li><strong>Articles and White Papers:</strong> Industry research on AI ROI and risk assessment</li>
+                        <li><strong>Video and Audio Content:</strong> Aligned with your learning preferences</li>
+                    </ul>
+                </div>
+                
+                <div class="resources-group">
+                    <h4>Resource Acquisition Plan</h4>
+                    <ol>
+                        <li>Set up development environment and required accounts</li>
+                        <li>Download module templates and starter materials</li>
+                        <li>Bookmark and organize online learning resources</li>
+                        <li>Join relevant communities for ongoing support</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="curriculum" class="section">
+        <div class="container">
+            <h2>Learning Curriculum</h2>
+            <p>The curriculum is organized into 12 weekly modules, each containing three learning sessions. Each session is designed to be completed in 2-3 hours, fitting within your 8-hour weekly time commitment.</p>
+            
+            <div class="curriculum-phase">
+                <h3>Phase 1: Foundation Building (Weeks 1-3)</h3>
+                
+                <div class="module">
+                    <h4>Module 1: AI ROI Fundamentals (Week 1)</h4>
+                    <ul>
+                        <li>AI investment frameworks</li>
+                        <li>ROI metrics and calculation methodologies</li>
+                        <li>Value assessment terminology</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h4>Module 2: AI Risk Assessment (Week 2)</h4>
+                    <ul>
+                        <li>AI implementation risk categories</li>
+                        <li>Risk assessment methodologies</li>
+                        <li>Risk mitigation strategies</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h4>Module 3: Integrated ROI and Risk Framework (Week 3)</h4>
+                    <ul>
+                        <li>Connecting ROI and risk concepts</li>
+                        <li>Decision frameworks for AI initiatives</li>
+                        <li>Blueprint system architecture planning</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="curriculum-phase">
+                <h3>Phase 2: Module Mastery (Weeks 4-6)</h3>
+                
+                <div class="module">
+                    <h4>Module 4: The Profit Engine & Reckoner (Week 4)</h4>
+                    <ul>
+                        <li>The Profit Engine: ROI calculator & diagnostic tool</li>
+                        <li>Reckoner: Executive decision-support module</li>
+                        <li>Integration of quantitative and strategic elements</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h4>Module 5: Redline & Clarity Index (Week 5)</h4>
+                    <ul>
+                        <li>Redline: Deployment readiness evaluator</li>
+                        <li>Clarity Index: Transparency & explainability assessment</li>
+                        <li>Balancing speed with governance and trust</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h4>Module 6: ReturnFire & Module Integration (Week 6)</h4>
+                    <ul>
+                        <li>ReturnFire: Post-deployment ROI acceleration</li>
+                        <li>Module integration techniques</li>
+                        <li>Creating a cohesive system architecture</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="curriculum-phase">
+                <h3>Phase 3: System Development (Weeks 7-9)</h3>
+                
+                <div class="module">
+                    <h4>Module 7: System Architecture (Week 7)</h4>
+                    <ul>
+                        <li>Architecture planning</li>
+                        <li>Core system components development</li>
+                        <li>User interface design</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h4>Module 8: Module Integration (Week 8)</h4>
+                    <ul>
+                        <li>Data flow between modules</li>
+                        <li>Cross-module analytics</li>
+                        <li>Unified reporting framework</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h4>Module 9: Testing and Refinement (Week 9)</h4>
+                    <ul>
+                        <li>Testing methodology</li>
+                        <li>System refinement</li>
+                        <li>Documentation of methodology</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="curriculum-phase">
+                <h3>Phase 4: Implementation & Scaling (Weeks 10-12)</h3>
+                
+                <div class="module">
+                    <h4>Module 10: Advanced Customization (Week 10)</h4>
+                    <ul>
+                        <li>Advanced customization options</li>
+                        <li>Enhanced visualizations</li>
+                        <li>Usability testing</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h4>Module 11: Industry Specialization (Week 11)</h4>
+                    <ul>
+                        <li>Industry-specific adaptations</li>
+                        <li>Comprehensive documentation</li>
+                        <li>User training materials</li>
+                    </ul>
+                </div>
+                
+                <div class="module">
+                    <h4>Module 12: Implementation & Scaling (Week 12)</h4>
+                    <ul>
+                        <li>Final system refinements</li>
+                        <li>Implementation strategy</li>
+                        <li>Scaling and growth planning</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="hands-on-projects">
+                <h3>Hands-On Projects</h3>
+                <p>Throughout the curriculum, you will work on five progressive projects:</p>
+                <ol>
+                    <li>AI ROI and Risk Assessment Framework Document (Weeks 1-2)</li>
+                    <li>Module Prototypes for Each of the Five Templates (Weeks 3-6)</li>
+                    <li>Integrated System Architecture (Weeks 7-8)</li>
+                    <li>Functional System Prototype (Week 9)</li>
+                    <li>Business-Ready AI Impact Blueprint System (Weeks 10-12)</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section id="assessment" class="section">
+        <div class="container">
+            <h2>Assessment Methodology</h2>
+            <p>The program includes a comprehensive assessment approach to gauge your competency and ensure you're making appropriate progress.</p>
+            
+            <div class="assessment-type">
+                <h3>Periodic Competency Tests</h3>
+                
+                <div class="assessment-group">
+                    <h4>Weekly Knowledge Checks</h4>
+                    <ul>
+                        <li>Brief assessments at the end of each weekly module</li>
+                        <li>Focus on key concepts and practical application</li>
+                        <li>Immediate feedback to guide further learning</li>
+                    </ul>
+                </div>
+                
+                <div class="assessment-group">
+                    <h4>Phase Completion Assessments</h4>
+                    <ul>
+                        <li>Comprehensive evaluations at the end of each phase</li>
+                        <li>Combination of theoretical knowledge and practical demonstration</li>
+                        <li>Remediation strategies for any identified gaps</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="assessment-type">
+                <h3>Project-Based Evaluations</h3>
+                <p>Five major project deliverables will be evaluated throughout the program:</p>
+                <ol>
+                    <li><strong>AI ROI and Risk Assessment Framework</strong> (End of Week 2)</li>
+                    <li><strong>Module Prototypes</strong> (End of Week 6)</li>
+                    <li><strong>System Architecture</strong> (End of Week 8)</li>
+                    <li><strong>Functional System Prototype</strong> (End of Week 9)</li>
+                    <li><strong>Business-Ready AI Impact Blueprint System</strong> (End of Week 12)</li>
+                </ol>
+            </div>
+            
+            <div class="assessment-type">
+                <h3>Self-Assessment Tools</h3>
+                <ul>
+                    <li><strong>Weekly Reflection Journal:</strong> Track progress, identify challenges, and plan improvements</li>
+                    <li><strong>Skill Competency Checklist:</strong> Track development of specific skills required for project completion</li>
+                    <li><strong>Peer Review Framework (Optional):</strong> Obtain external feedback on project components</li>
+                </ul>
+            </div>
+            
+            <div class="assessment-type">
+                <h3>Progress Tracking Mechanisms</h3>
+                <ul>
+                    <li><strong>Learning Dashboard:</strong> Track module completion, assessment scores, and project milestones</li>
+                    <li><strong>Competency Heat Map:</strong> Visualize strengths and areas for improvement across key skill domains</li>
+                    <li><strong>Progress Retrospectives:</strong> Holistic evaluation of progress at key milestones</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AI Impact Blueprint</p>
+            <p>The end-to-end methodology for realizing ROI at AI speed</p>
+            <div class="trademark-notice">
+                <p>Trademark Notice: AI Impact Blueprint™, The Profit Engine™, Reckoner™, Redline™, Clarity Index™, and ReturnFire™ are trademarks of the company.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop">&uarr;</button>
+
+    <script>
+        // Progress bar at top of page
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add active class to navigation items on scroll
+        const sections = document.querySelectorAll('.section');
+        const navItems = document.querySelectorAll('nav ul li a');
+        
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Mobile navigation toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const nav = document.querySelector('nav');
+        
+        if (navToggle) {
+            navToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                this.classList.toggle('active');
+            });
+        }
+        
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Module card hover effects
+        const moduleCards = document.querySelectorAll('.module-card');
+        moduleCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.boxShadow = '0 15px 30px rgba(0,0,0,0.2)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 8px 20px rgba(0,0,0,0.15)';
+            });
+        });
+    </script>
+</body>
+</html>
