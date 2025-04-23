@@ -1,4 +1,4 @@
-// Main JavaScript file for the AI ROI Calculator Learning Program website
+// Main JavaScript file for the AI Impact Blueprint™ website
 
 document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling for navigation links
@@ -235,43 +235,127 @@ document.addEventListener('DOMContentLoaded', function() {
     
     addBackToTopButton();
     
-    // Add section fade-in animation on scroll
-    const addScrollAnimation = () => {
-        const sections = document.querySelectorAll('.section');
+    // Module card hover effects
+    const moduleCards = document.querySelectorAll('.module-card');
+    moduleCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+            this.style.boxShadow = '0 15px 30px rgba(0,0,0,0.2)';
+        });
         
-        const fadeInOnScroll = () => {
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (sectionTop < windowHeight * 0.75) {
-                    section.classList.add('fade-in');
-                }
-            });
-        };
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 8px 20px rgba(0,0,0,0.15)';
+        });
+    });
+    
+    // Add module integration visualization
+    const addModuleIntegrationVisualization = () => {
+        const moduleIntegration = document.querySelector('.module-integration');
+        if (!moduleIntegration) return;
         
-        // Add styles for fade-in animation
+        const visualizationContainer = document.createElement('div');
+        visualizationContainer.classList.add('integration-visualization');
+        
         const styleElement = document.createElement('style');
         styleElement.textContent = `
-            .section {
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.8s ease, transform 0.8s ease;
+            .integration-visualization {
+                margin-top: 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 1rem;
             }
             
-            .section.fade-in {
-                opacity: 1;
-                transform: translateY(0);
+            .module-node {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-weight: bold;
+                text-align: center;
+                font-size: 0.9rem;
+                position: relative;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                transition: all 0.3s ease;
+            }
+            
+            .module-node:hover {
+                transform: scale(1.1);
+            }
+            
+            .module-node.profit-engine {
+                background-color: var(--profit-engine-color);
+            }
+            
+            .module-node.reckoner {
+                background-color: var(--reckoner-color);
+            }
+            
+            .module-node.redline {
+                background-color: var(--redline-color);
+            }
+            
+            .module-node.clarity-index {
+                background-color: var(--clarity-index-color);
+            }
+            
+            .module-node.returnfire {
+                background-color: var(--returnfire-color);
+            }
+            
+            .module-node.center {
+                background-color: var(--primary-color);
+                width: 150px;
+                height: 150px;
+                z-index: 2;
+                margin: 1rem;
+            }
+            
+            @media (max-width: 768px) {
+                .module-node {
+                    width: 100px;
+                    height: 100px;
+                    font-size: 0.8rem;
+                }
+                
+                .module-node.center {
+                    width: 120px;
+                    height: 120px;
+                }
             }
         `;
         document.head.appendChild(styleElement);
         
-        // Initial check on page load
-        fadeInOnScroll();
+        // Create center node
+        const centerNode = document.createElement('div');
+        centerNode.classList.add('module-node', 'center');
+        centerNode.textContent = 'AI Impact Blueprint™';
+        visualizationContainer.appendChild(centerNode);
         
-        // Check on scroll
-        window.addEventListener('scroll', fadeInOnScroll);
+        // Create module nodes
+        const modules = [
+            { name: 'The Profit Engine™', class: 'profit-engine' },
+            { name: 'Reckoner™', class: 'reckoner' },
+            { name: 'Redline™', class: 'redline' },
+            { name: 'Clarity Index™', class: 'clarity-index' },
+            { name: 'ReturnFire™', class: 'returnfire' }
+        ];
+        
+        modules.forEach(module => {
+            const moduleNode = document.createElement('div');
+            moduleNode.classList.add('module-node', module.class);
+            moduleNode.textContent = module.name;
+            visualizationContainer.appendChild(moduleNode);
+        });
+        
+        moduleIntegration.appendChild(visualizationContainer);
     };
     
-    addScrollAnimation();
+    addModuleIntegrationVisualization();
 });
+
